@@ -1,0 +1,561 @@
+/* ==========================================================================
+   1. REGLAS GENERALES Y ESTILOS BASE
+   ========================================================================== */
+
+/* Reseteo básico para eliminar márgenes y paddings por defecto de los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración de transiciones suaves para todo el sitio al usar scroll interno */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Establece la tipografía base del cuerpo del texto, color y suavizado de fuentes */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #AA7483; /* Aplicación del color principal oscuro para textos estándar */
+    background-color: #FFF7F7; /* Fondo general por defecto */
+    line-height: 1.6;
+}
+
+/* Configuración global de títulos con la tipografía Amaranth */
+h1, h2, h3 {
+    font-family: 'Amaranth', sans-serif;
+}
+
+/* Contenedor fijo para centrar el contenido y limitar su ancho máximo en pantallas grandes */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo estandarizado para los títulos principales de cada sección */
+.titulo-seccion {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   2. REGLAS DE COMPONENTES REUTILIZABLES (BOTONES Y EFECTOS)
+   ========================================================================== */
+
+/* Estilo base para el botón de acento (Llamadas a la acción) */
+.boton-acento {
+    display: inline-block;
+    background-color: #F58393; /* Color de acento llamativo */
+    color: #FFF7F7; /* Contraste con color claro 2 */
+    padding: 0.8rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover interactivo para el botón de acento */
+.boton-acento:hover {
+    background-color: #AA7483; /* Cambia al color principal oscuro */
+    transform: translateY(-3px); /* Pequeño desplazamiento hacia arriba */
+}
+
+/* ==========================================================================
+   3. ESTILOS DEL HEADER (ENCABEZADO)
+   ========================================================================== */
+
+/* Fondo oscuro y estructura general del header */
+.sitio-header {
+    background-color: #AA7483; /* Color principal oscuro */
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Asegura que se mantenga visible por encima de otros elementos */
+}
+
+/* Distribución paralela del logo y la navegación mediante Flexbox */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Representación visual temporal del logo cuadrado */
+.logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #FFD3DE; /* Color claro 1 para contraste */
+    color: #AA7483;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Contenedor de enlaces de navegación espaciados horizontalmente */
+.navegacion-principal {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Estilos individuales para los links del menú */
+.enlace-nav {
+    color: #FFF7F7; /* Color claro 2 para legibilidad sobre fondo oscuro */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Cambio de color sutil al pasar el cursor sobre los enlaces */
+.enlace-nav:hover {
+    color: #EFC4C4; /* Color secundario medio */
+}
+
+/* ==========================================================================
+   4. ESTILOS DE LA SECCIÓN HERO
+   ========================================================================== */
+
+/* Espaciado amplio y fondo claro específico */
+.seccion-hero {
+    background-color: #FFF7F7; /* Color claro 2 */
+    padding: 6rem 0;
+}
+
+/* Alineación en dos columnas con Flexbox para el texto y la imagen de perfil */
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+/* Columna de texto configurada para ocupar la mitad del espacio disponible */
+.hero-columna-texto {
+    flex: 1;
+}
+
+.hero-titulo {
+    font-size: 3.5rem;
+    color: #AA7483; /* Color principal oscuro */
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.hero-subtitulo {
+    font-size: 1.8rem;
+    color: #AA7483; /* Color secundario medio */
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* Columna de la imagen alineada al centro */
+.hero-columna-imagen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Recorte circular perfecto y sombra decorativa para la foto de perfil */
+.foto-perfil {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #FFD3DE; /* Borde con color claro 1 */
+}
+
+/* ==========================================================================
+   5. ESTILOS DE LA SECCIÓN MIS PROYECTOS
+   ========================================================================== */
+
+.seccion-proyectos {
+    background-color: #FFD3DE; /* Color claro 1 (Alternancia de fondo) */
+    padding: 6rem 0;
+}
+
+.seccion-proyectos .titulo-seccion {
+    color: #AA7483;
+}
+
+/* Disposición horizontal de tres tarjetas utilizando Flexbox */
+.proyectos-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+/* Estructura individual de la tarjeta del proyecto */
+.tarjeta-proyecto {
+    background-color: #FFF7F7; /* Fondo interno claro 2 para contrastar */
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden; /* Mantiene la imagen dentro de los bordes redondeados */
+    box-shadow: 0 4px 15px rgba(170, 116, 131, 0.15); /* Sombra suave usando el color principal */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de elevación al interactuar con las tarjetas de proyectos */
+.tarjeta-proyecto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(170, 116, 131, 0.3);
+}
+
+.proyecto-imagen {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Margen interno para los textos descriptivos dentro de la tarjeta */
+.proyecto-contenido {
+    padding: 1.5rem;
+}
+
+.proyecto-titulo {
+    color: #AA7483;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.proyecto-descripcion {
+    font-size: 0.95rem;
+    color: #AA7483;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   6. ESTILOS DE LA SECCIÓN HABILIDADES
+   ========================================================================== */
+
+.seccion-habilidades {
+    background-color: #FFF7F7; /* Color claro 2 (Alternancia de fondo) */
+    padding: 6rem 0;
+}
+
+.seccion-habilidades .titulo-seccion {
+    color: #AA7483;
+}
+
+/* Distribución horizontal de cuatro tarjetas mediante Flexbox */
+.habilidades-flex {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+/* Diseño de las tarjetas de habilidades individuales con fuerte contraste */
+.tarjeta-habilidad {
+    flex: 1;
+    background-color: #FFD3DE; /* Color claro 1 para resaltar sobre el fondo claro 2 */
+    color: #AA7483;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(170, 116, 131, 0.1);
+}
+
+/* ==========================================================================
+   7. ESTILOS DE LA SECCIÓN CONTACTO
+   ========================================================================== */
+
+.seccion-contacto {
+    background-color: #FFD3DE; /* Color claro 1 (Alternancia de fondo) */
+    padding: 6rem 0;
+}
+
+/* Estructura de dos columnas paralelas usando Flexbox */
+.contacto-flex {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+/* Ajuste proporcional de anchos por columna */
+.contacto-columna-texto {
+    flex: 1;
+}
+
+.contacto-columna-formulario {
+    flex: 1;
+    background-color: #FFF7F7; /* Fondo claro 2 para aislar visualmente el formulario */
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(170, 116, 131, 0.1);
+}
+
+.contacto-titulo {
+    font-size: 2.5rem;
+    color: #AA7483;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.contacto-motivacion {
+    color: #AA7483;
+    font-size: 1.05rem;
+}
+
+/* Contenedores individuales para dar margen vertical entre campos */
+.campo-formulario {
+    margin-bottom: 1.25rem;
+}
+
+.etiqueta-formulario {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #AA7483;
+}
+
+/* Estilos compartidos para campos de entrada de texto cortos y largos */
+.input-formulario,
+.textarea-formulario {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #EFC4C4; /* Borde suave usando el color secundario medio */
+    background-color: #FFF7F7;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    color: #AA7483;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Evita que el usuario distorsione el diseño rompiendo las dimensiones horizontales */
+.textarea-formulario {
+    resize: vertical;
+}
+
+/* Cambio de color del borde al hacer foco en un campo */
+.input-formulario:focus,
+.textarea-formulario:focus {
+    border-color: #F58393; /* Resalta con el color de acento */
+}
+
+/* Botón de envío que abarca todo el ancho del formulario */
+.boton-enviar {
+    width: 100%;
+    background-color: #F58393; /* Color de acento */
+    color: #FFF7F7;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio de estado interactivo del botón de enviar */
+.boton-enviar:hover {
+    background-color: #AA7483; /* Cambia al color principal oscuro */
+}
+
+/* ==========================================================================
+   8. ESTILOS DEL FOOTER (PIE DE PÁGINA)
+   ========================================================================== */
+
+/* Fondo oscuro e idéntico al encabezado principal */
+.sitio-footer {
+    background-color: #AA7483; /* Color principal oscuro */
+    color: #FFF7F7;
+    padding: 2rem 0;
+}
+
+/* Alineación simétrica de elementos en el footer */
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-copyright {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* Contenedor horizontal para redes sociales */
+.redes-sociales {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Estilos de los links de redes sociales */
+.enlace-social {
+    color: #FFF7F7; /* Color claro 2 */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Efecto de color y leve rebote hacia arriba en hover */
+.enlace-social:hover {
+    color: #F58393; /* Destaca con el color de acento */
+    transform: translateY(-2px);
+}/* ==========================================================================
+   NUEVA SECCIÓN: HABILIDADES (PROGRAMAS)
+   ========================================================================== */
+.section--skills {
+  text-align: center; /* Centra la cabecera */
+}
+
+.skills__container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dos columnas equilibradas en escritorio */
+  gap: var(--space-lg) var(--space-xl); /* Espacio consistente entre elementos */
+  margin-top: var(--space-xl);
+  text-align: left; /* Alinea los textos de las barras a la izquierda */
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Círculo a la izquierda fijo, barra flexible */
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--surface); /* Superficie sutil para resaltar cada item */
+  padding: 1.2rem 1.8rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: transform var(--transition-base);
+}
+
+.skill-item:hover {
+  transform: translateY(-2px); /* Efecto sutil al pasar el mouse */
+}
+
+.skill-item__circle {
+  width: 55px; /* Tamaño del contenedor del icono */
+  height: 55px;
+  background: var(--bg-main); /* Fondo más oscuro interno */
+  border-radius: 50%; /* Transforma en círculo perfecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-item__icon {
+  width: 65%; /* Ajusta el icono de manera estética dentro del círculo */
+  height: 65%;
+  object-fit: contain;
+}
+/* ==========================================================================
+   SECCIÓN DE HABILIDADES / PROGRAMAS (FIX DE RELLENO OBLIGATORIO)
+   ========================================================================== */
+.section--skills {
+  text-align: center;
+}
+
+.skills__container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg) var(--space-xl);
+  margin-top: var(--space-xl);
+  text-align: left;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--surface);
+  padding: 1.2rem 1.8rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: transform var(--transition-base);
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+}
+
+.skill-item__circle {
+  width: 55px;
+  height: 55px;
+  background: var(--bg-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-item__icon {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+}
+
+.skill-item__bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%; /* Forzamos el ancho de bloque */
+}
+
+.skill-item__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-item__name {
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.skill-item__percentage {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Base de la barra */
+.skill-item__bar-bg {
+  width: 100%;
+  height: 6px; /* Alto delgado */
+  background: rgba(0, 0, 0, 0.12); 
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+  display: flex; /* Forzamos comportamiento flexible interno */
+}
+
+/* Relleno Base Común */
+.skill-item__bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent, #F58393); /* Si falla la variable, pinta rojo directo */
+  border-radius: 999px;
+}
+
+/* Asignación de porcentajes controlada por CSS puro */
+.illustrator-bar { width: 90%; }
+.photoshop-bar   { width: 95%; }
+.krita-bar       { width: 80%; }
+.capcut-bar      { width: 85%; }
+.canva-bar       { width: 90%; }
+.vscode-bar      { width: 75%; }
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 1024px) {
+  .skills__container {
+    grid-template-columns: 1fr;
+  }
+}
