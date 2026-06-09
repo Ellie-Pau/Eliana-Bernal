@@ -82,6 +82,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
 }
 
 /* Representación visual temporal del logo cuadrado */
